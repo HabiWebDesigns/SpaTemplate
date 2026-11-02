@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Contact & Location | SERENÉ Spa & Wellness</title>
+    <meta name="description"
+        content="Find SERENÉ Spa & Wellness, review opening hours and prepare a message for our team.">
+    <meta property="og:title" content="Contact & Location | SERENÉ Spa & Wellness">
+    <meta property="og:description"
+        content="Find SERENÉ Spa & Wellness, review opening hours and prepare a message for our team.">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://your-username.github.io/serene-spa/contact.html">
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2334483C'/%3E%3Ctext x='16' y='23' font-size='20' text-anchor='middle' fill='%23F8F5EF' font-family='serif'%3ES%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/data.js" defer></script>
+    <script src="js/main.js" defer></script>
+</head>
+
+<body data-page="contact" class="has-hero">
+    <a class="skip" href="#main">Skip to content</a>
+    <div id="site-header"></div>
+    <noscript>
+        <p style="padding:5rem 1.5rem 1rem">Please enable JavaScript to view the full site. You can also visit <a
+                href="about.html">about</a>, <a href="services.html">services</a>, <a href="gallery.html">the
+                gallery</a> or <a href="booking.html">booking</a>.</p>
+    </noscript>
+    <main id="main">
+        <section class="hero hero--sub"><img class="hero__bg" data-img="towel" data-parallax
+                alt="Folded towels and spa details" width="1600" height="900" fetchpriority="high">
+            <div class="container hero__in">
+                <p class="eyebrow" data-in>Contact & Location</p>
+                <h1 data-in style="--d:.15s">We would love to hear from you.</h1>
+                <p class="lead" data-in style="--d:.3s">Reach out with questions about treatments, availability or
+                    planning your visit.</p>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container split" style="align-items:start">
+                <div data-reveal>
+                    <dl class="info">
+                        <div>
+                            <dt>Address</dt>
+                            <dd data-bind="contact.address"></dd>
+                        </div>
+                        <div>
+                            <dt>Phone</dt>
+                            <dd data-bind="contact.phone"></dd>
+                        </div>
+                        <div>
+                            <dt>Email</dt>
+                            <dd data-bind="contact.email"></dd>
+                        </div>
+                        <div>
+                            <dt>Opening hours</dt>
+                            <dd>
+                                <table class="hours" data-hours></table>
+                            </dd>
+                        </div>
+                        <div>
+                            <dt>Social</dt>
+                            <dd>
+                                <div class="soc" data-social style="color:var(--forest)"></div>
+                            </dd>
+                        </div>
+                    </dl>
+                    <div class="map" data-map style="margin-top:1.5rem"></div>
+                </div>
+                <div class="formcard" data-reveal>
+                    <h2 style="font-size:2rem;margin-bottom:.6rem">Send a message</h2>
+                    <p class="notice" style="margin-bottom:1.2rem">Messaging is not connected yet. Your message will not
+                        be sent or saved.</p>
+                    <form id="cf" novalidate>
+                        <div class="fgrid">
+                            <div class="field"><label for="c-name">Name *</label><input id="c-name" required
+                                    autocomplete="name"></div>
+                            <div class="field"><label for="c-email">Email *</label><input id="c-email" type="email"
+                                    required autocomplete="email"></div>
+                            <div class="field"><label for="c-subject">Subject *</label><input id="c-subject" required>
+                            </div>
+                            <div class="field"><label for="c-msg">Message *</label><textarea id="c-msg" required
+                                    minlength="10"></textarea></div>
+                        </div>
+                        <div class="row-btns"><button class="btn" type="submit">Review Message</button><button
+                                class="btn btn--outline" type="reset">Reset</button></div>
+                    </form>
+                    <div id="cf-ok" hidden role="status">
+                        <div class="ok">
+                            <div class="tick" aria-hidden="true">✓</div>
+                            <h2 tabindex="-1" style="font-size:1.8rem">Your message is ready.</h2>
+                            <p>Messaging is not connected, so your message has not been sent or saved.</p>
+                            <div class="row-btns" style="justify-content:center"><button class="btn btn--outline"
+                                    id="cf-new" type="button">Write Another</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section section--white">
+            <div class="container split" style="align-items:start">
+                <div data-reveal>
+                    <p class="eyebrow">Directions & parking</p>
+                    <h2>Getting here.</h2>
+                </div>
+                <div data-reveal>
+                    <p style="color:var(--muted)">Location and parking details will be added here.</p>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container">
+                <header class="sec-h" data-reveal>
+                    <p class="eyebrow">FAQ</p>
+                    <h2>Quick answers.</h2>
+                </header>
+                <div id="faq-list" style="max-width:48rem"></div>
+            </div>
+        </section>
+        <section class="band dark"><img data-img="stones" alt="" width="1600" height="900" loading="lazy">
+            <div class="container" data-reveal>
+                <h2>Ready to unwind?</h2>
+                <div class="btns"><a class="btn btn--light" href="services.html">Browse Treatments & Rates</a></div>
+            </div>
+        </section>
+    </main>
+    <div id="site-footer"></div>
+</body>
+
+</html>
