@@ -5,7 +5,7 @@
     contact: {
       address: '',
       phone: '', email: '', whatsapp: '', // WhatsApp number uses digits only, e.g. 639000000000
-      mapEmbed: '' // Add a Google Maps embed URL to display a map
+      mapEmbed: 'https://www.google.com/maps?q=SM%20City%20Batangas&output=embed'
     },
     social: { facebook: '', instagram: '' }, // add full URLs to activate icons
     hours: [['Monday – Friday', '10:00 AM – 9:00 PM'], ['Saturday – Sunday', '9:00 AM – 10:00 PM']],

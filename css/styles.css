@@ -1075,6 +1075,28 @@ fieldset {
     font-size: .92rem
 }
 
+.prompt {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(100% - 2rem, 32rem);
+    max-width: none;
+    max-height: calc(100vh - 2rem);
+    max-height: calc(100dvh - 2rem);
+    overflow-y: auto;
+    border: 1px solid rgba(52, 72, 60, .12);
+    border-radius: 20px;
+    padding: clamp(1.4rem, 4vw, 2.4rem);
+    background: var(--white);
+    color: var(--charcoal);
+    box-shadow: var(--sh)
+}
+
+.prompt::backdrop {
+    background: rgba(25, 32, 27, .58)
+}
+
 .ok {
     text-align: center;
     padding: 1rem 0;
@@ -1531,6 +1553,22 @@ fieldset {
     .hero__bg {
         inset: 0;
         height: 100%
+    }
+}
+
+@media(max-width:759px) {
+    .mobile-center .sec-h,
+    .mobile-center .values div,
+    .mobile-center .benefit {
+        text-align: center
+    }
+
+    .mobile-center .sec-h {
+        margin-inline: auto
+    }
+
+    .mobile-center .benefit span {
+        margin-inline: auto
     }
 }
 

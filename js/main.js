@@ -63,10 +63,23 @@
   };
   const checkForm = f => { let first = null; $$('input,select,textarea', f).forEach(el => { if (!checkField(el) && !first) first = el }); first?.focus(); return !first };
   const liveCheck = f => { f.addEventListener('input', e => { if (e.target.getAttribute?.('aria-invalid')) checkField(e.target) }); f.addEventListener('reset', () => setTimeout(() => { $$('.err', f).forEach(x => x.remove()); $$('[aria-invalid]', f).forEach(x => x.removeAttribute('aria-invalid')) })) };
+  const prompt = d.createElement('dialog');
+  prompt.className = 'prompt';
+  prompt.setAttribute('aria-labelledby', 'prompt-title');
+  prompt.setAttribute('aria-describedby', 'prompt-message');
+  prompt.innerHTML = '<div class="ok"><div class="tick" aria-hidden="true">✓</div><h2 id="prompt-title"></h2><p id="prompt-message"></p><div class="row-btns" style="justify-content:center"><button class="btn btn--outline" type="button">Close</button></div></div>';
+  d.body.append(prompt);
+  const showPrompt = (title, message) => {
+    $('#prompt-title', prompt).textContent = title;
+    $('#prompt-message', prompt).textContent = message;
+    prompt.showModal();
+  };
+  $('button', prompt).addEventListener('click', () => prompt.close());
+  prompt.addEventListener('click', e => { if (e.target === prompt) prompt.close() });
 
   /* newsletter */
   const nl = $('#newsletter'); liveCheck(nl);
-  nl.addEventListener('submit', e => { e.preventDefault(); const m = $('#nl-msg'); if (!checkForm(nl)) { m.textContent = ''; return } m.textContent = 'Newsletter signup is not connected. Your email was not sent or stored.'; nl.reset() });
+  nl.addEventListener('submit', e => { e.preventDefault(); const m = $('#nl-msg'); if (!checkForm(nl)) { m.textContent = ''; return } m.textContent = 'Newsletter signup is not connected. Your email was not sent or stored.'; showPrompt('Signup not connected', m.textContent); nl.reset() });
 
   /* ---------- pages ---------- */
   const pages = {
@@ -99,7 +112,7 @@
         $('#bk-rows').innerHTML = rows.map(r => `<div><dt>${r[0]}</dt><dd>${esc(r[1])}</dd></div>`).join(''); show('sum'); $('#bk-sum h2').focus()
       });
       $('#bk-edit').addEventListener('click', () => { show('form'); $('#f-name').focus() });
-      $('#bk-confirm').addEventListener('click', e => { e.currentTarget.disabled = true; show('ok'); $('#bk-ok h2').focus() });
+      $('#bk-confirm').addEventListener('click', e => { e.currentTarget.disabled = true; show('ok'); $('#bk-ok h2').focus(); showPrompt('Your inquiry is ready', 'No appointment has been made. Your details have not been sent or saved.') });
       $('#bk-new').addEventListener('click', () => { f.reset(); $('#bk-confirm').disabled = false; show('form'); $('#f-name').focus() });
     },
     gallery() {
@@ -122,7 +135,7 @@
     contact() {
       accordion($('#faq-list'), S.faqContact);
       const f = $('#cf'); liveCheck(f);
-      f.addEventListener('submit', e => { e.preventDefault(); if (!checkForm(f)) return; f.hidden = true; $('#cf-ok').hidden = false; $('#cf-ok h2').focus() });
+      f.addEventListener('submit', e => { e.preventDefault(); if (!checkForm(f)) return; f.hidden = true; $('#cf-ok').hidden = false; $('#cf-ok h2').focus(); showPrompt('Your message is ready', 'Messaging is not connected, so your message has not been sent or saved.') });
       $('#cf-new').addEventListener('click', () => { f.reset(); f.hidden = false; $('#cf-ok').hidden = true; $('#c-name').focus() });
     }
   };
